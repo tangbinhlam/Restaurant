@@ -1,0 +1,37 @@
+{
+  "preset": "jest-preset-angular",
+  "setupTestFrameworkScriptFile": "<rootDir>/src/jest/setupJest.ts",
+  "globals": {
+    "ts-jest": {
+      "tsConfigFile": "src/tsconfig.spec.json",
+      "useBabel": true
+    },
+    "__TRANSFORM_HTML__": true
+  },
+  "transform": {
+    "^.+\\.(ts|html)$": "<rootDir>/node_modules/jest-preset-angular/preprocessor.js",
+    "^.+\\.js$": "babel-jest"
+  },
+  "transformIgnorePatterns": [
+    "node_modules/(?!(@ngrx|@mobi))"
+  ],
+  "moduleNameMapper": {
+    "^.*\\.(jpg|jpeg|png|ico)$": "<rootDir>/src/jest/assetsTransformer.js",
+    "@restaurant/food": "<rootDir>/src/app/modules/food/",
+    "@restaurant/domain$": "<rootDir>/src/app/domain/",
+    "@restaurant/shared$": "<rootDir>/src/app/shared/",
+    "@restaurant/core$": "<rootDir>/src/app/core/",
+    "@restaurant/(.*)$": "<rootDir>/src/app/$1"
+  },
+  "collectCoverageFrom": [
+    "src/app/**/*.{ts}",
+    "!src/app/**/index.{ts}",
+    "!src/app/*.{ts}",
+    "!src/app/**/*.mock.{ts}",
+    "!src/jest/*",
+    "!src/**/*.{js}",
+    "!src/app/environment/*.{ts}"
+  ],
+  "testResultsProcessor": "jest-sonar-reporter",
+  "resetMocks": true
+}

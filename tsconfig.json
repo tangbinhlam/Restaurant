@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src/",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -17,6 +17,23 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@restaurant/*": [
+        "app/*"
+      ],
+      "@restaurant/core": [
+        "app/core/"
+      ],
+      "@restaurant/domain": [
+        "app/domain/"
+      ],
+      "@restaurant/modules/food": [
+        "app/modules/food/"
+      ],
+      "@restaurant/shared": [
+        "app/shared/"
+      ]
+    }
   }
 }
