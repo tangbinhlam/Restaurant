@@ -28,6 +28,9 @@
       "@restaurant/domain": [
         "app/domain/"
       ],
+      "@restaurant/modules/users": [
+        "app/modules/users/"
+      ],
       "@restaurant/modules/products": [
         "app/modules/products/"
       ],
