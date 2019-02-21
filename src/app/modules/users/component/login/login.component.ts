@@ -16,7 +16,7 @@ export class LoginComponent {
 
   login(): void {
     if (this.username === 'admin' && this.password === 'admin') {
-      this.router.navigate(['user']);
+      this.router.navigate(['restaurant/user']);
     } else {
       alert('Invalid credentials');
     }
