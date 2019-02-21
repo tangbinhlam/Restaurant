@@ -17,7 +17,7 @@
   ],
   "moduleNameMapper": {
     "^.*\\.(jpg|jpeg|png|ico)$": "<rootDir>/src/jest/assetsTransformer.js",
-    "@restaurant/food": "<rootDir>/src/app/modules/food/",
+    "@restaurant/products": "<rootDir>/src/app/modules/products/",
     "@restaurant/domain$": "<rootDir>/src/app/domain/",
     "@restaurant/shared$": "<rootDir>/src/app/shared/",
     "@restaurant/core$": "<rootDir>/src/app/core/",

@@ -28,8 +28,8 @@
       "@restaurant/domain": [
         "app/domain/"
       ],
-      "@restaurant/modules/food": [
-        "app/modules/food/"
+      "@restaurant/modules/products": [
+        "app/modules/products/"
       ],
       "@restaurant/shared": [
         "app/shared/"
