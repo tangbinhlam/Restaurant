@@ -1,16 +1,15 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, inject, TestBed } from '@angular/core/testing';
 
 import {LoginComponent} from './login.component';
-import {FormsModule} from "@angular/forms";
-import {CustomMaterialModule} from "@restaurant/custom-material.module";
-import {RouterTestingModule} from "@angular/router/testing";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {Router} from "@angular/router";
+import {FormsModule} from '@angular/forms';
+import {CustomMaterialModule} from '@restaurant/custom-material.module';
+import {RouterTestingModule} from '@angular/router/testing';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {Router} from '@angular/router';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-  const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
   setupTestBed({
     imports: [
@@ -21,7 +20,7 @@ describe('LoginComponent', () => {
 
     ],
     providers: [
-      {provide: Router, useValue: routerSpy}
+      {provide: Router, useValue: {navigate: jest.fn()}},
     ],
     declarations: [LoginComponent]
   });
@@ -37,14 +36,30 @@ describe('LoginComponent', () => {
   });
 
   describe('Login() should work correctly', () => {
-    it('should go to user page', () => {
+    it('should go to user page',
+      inject([Router], (router: Router) => {
       // Given
       component.username = 'admin';
       component.password = 'admin';
       // When
-       component.login();
+      component.login();
       // Then
-      expect(component.username).toEqual('admin');
-    });
-  })
+      fixture.detectChanges();
+      expect(router.navigate).toHaveBeenCalledTimes(1);
+      expect(router.navigate).toHaveBeenCalledWith([`restaurant/user`]);
+    }));
+  });
+
+  it('should go to register page',
+    inject([Router], (router: Router) => {
+      // Given
+      component.username = 'admin';
+      component.password = 'user';
+      // When
+      component.login();
+      // Then
+      fixture.detectChanges();
+      expect(router.navigate).toHaveBeenCalledTimes(1);
+      expect(router.navigate).toHaveBeenCalledWith([`restaurant/register`]);
+    }));
 });
