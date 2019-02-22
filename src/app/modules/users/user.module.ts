@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
+import { CustomMaterialModule } from '@restaurant/custom-material.module';
+import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { LoginComponent, UserComponent } from './component';
 import { UserRoutingModule } from './user.route';
-import { CustomMaterialModule } from '@restaurant/custom-material.module';
-import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './component/register/register.component';
 
 @NgModule({
@@ -11,6 +12,7 @@ import { RegisterComponent } from './component/register/register.component';
     UserRoutingModule,
     CustomMaterialModule,
     FormsModule,
+    TranslateModule,
   ],
   declarations: [
     LoginComponent,

@@ -4,7 +4,7 @@
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
     "module": "es2015",
-    "types": []
+    "types": ["node"]
   },
   "exclude": [
     "test.ts",
@@ -12,5 +12,7 @@
     "**/*.spec.ts",
     "**/*.pact.ts",
     "**/*.mock.ts"
-  ]
+  ],
+  "types": [ "node" ],
+  "typeRoots": [ "../node_modules/@tynodepes" ]
 }
